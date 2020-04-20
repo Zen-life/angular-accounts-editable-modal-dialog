@@ -1,0 +1,42 @@
+/* styles for dialog box */
+
+.h3, h3 {
+    font-size: 1.7em;
+    margin-bottom: 6%;
+}
+
+.form-group h5 {
+    font-weight: 700;
+}
+
+.form-group h5, .form-group h3 + label, form p:last-child {
+ color: #3b6b3b;
+}
+
+.form-group h5, .form-group h3 + label {
+    font-size: 1.2em;
+}
+
+/* add bottom margins on two 'form-group' classes */
+.panel-body form .form-group:first-of-type, .panel-body form .form-group:nth-of-type(3) {
+    margin-bottom: 7%;
+}
+
+.btn-group {
+    margin-bottom: 3.5%;
+}
+
+/* colors for the DOB labels when related inputs have focus */
+.labelActive {
+    color: royalblue;
+}
+
+.labelActiveSpan {
+    color: red;
+}
+
+input, select {
+    border: 0; border-bottom: 1px solid #ccc;
+}
+
+

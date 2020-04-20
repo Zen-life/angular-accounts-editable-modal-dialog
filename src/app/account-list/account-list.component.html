@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">{{adminTitle}}</div>
+    <div class="panel-body">
+          
+        <div class="panel panel-default">
+            <div class="panel-heading">{{accountsTitle}}</div>
+            <div class="panel-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr #list *ngFor="let accountDetail of accountData; let indx = index">
+                    <td>{{indx}} {{accountDetail.name}}</td>
+                    <td>{{accountDetail.dob}}</td>
+                    <td><button id="btn{{+ accountDetail.id}}" class="btn btn-default" (mouseover)="myEvent(indx)" (click)="openDialog(accountDetail); getAccountDataIndex(indx)" #btn1>Edit <span class="glyphicon glyphicon-pencil"></span></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+    </div>
+  </div>
+  </div>

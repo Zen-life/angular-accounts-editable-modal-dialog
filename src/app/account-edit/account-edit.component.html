@@ -1,0 +1,82 @@
+
+  <div class="panel panel-primary">
+        <div class="panel-heading">{{editTitle}}</div>
+        <div class="panel-body">
+        
+                <form [formGroup]="form">
+                  <div class="form-group">
+                    <h3>{{data.description}}</h3>
+                      
+                    <label for="name">Full name &#42;</label> 
+                    <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Enter your name" value="{{data.accountData[data.id].name}}">
+                    
+                    
+                    <div *ngIf="form.get('name').touched && form.get('name').invalid" class="alert alert-danger">
+                      
+                      <div *ngIf="form.get('name').errors.required">Name is required.</div>
+                      <div *ngIf="form.get('name').errors.minlength">Name should be minimum of {{ form.get('name').errors.minlength.requiredLength }} characters.</div>
+                    </div>                   
+                  </div><!--form-group End -->
+
+
+                  <!-- ID field keeps the objects in the array unique-->
+                  <div class="form-group">                    
+                    <input type="hidden" class="form-control" id="id" name="id" formControlName="id" readonly value="{{data.accountData[data.id].id}}">
+                  </div>
+
+         
+
+          <div class="form-group">
+
+            <h5 id="date-of-birth">Date of birth &#42;</h5>   
+              
+            <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="dobDate" class="text-muted labHghlight">Date <span class="spanHghlight">&#42;</span></label>          
+                    <select class="form-control" id="dobDate" name="dobDate" formControlName="dobDate" aria-labelledby="date-of-birth" required aria-required="true" (focus)="addHighlight($event)" (blur)="removehighlight($event)">
+                      <option *ngFor="let date of selDates; let i = index" [value]="date">{{date}}</option>
+                      </select>
+                    <!--div *ngIf="form.get('dobDate').touched && form.get('dobDate').invalid" class="alert alert-danger">Date is required.</div-->
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="dobMonth" class="text-muted labHghlight">Month <span class="spanHghlight">&#42;</span></label>     
+                    <select class="form-control" id="dobMonth" name="dobMonth" formControlName="dobMonth" aria-labelledby="date-of-birth" required aria-required="true" (focus)="addHighlight($event)" (blur)="removehighlight($event)">
+                      <option *ngFor="let month of selMonth; let i = index" [value]="month">{{month}}</option>
+                      </select>
+                    <!--div *ngIf="form.get('dobMonth').touched && form.get('dobMonth').invalid" class="alert alert-danger">Date is required.</div-->
+                  </div>
+                </div><!-- col-sm-4 -->  
+                
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="dobYear" class="text-muted labHghlight">Year <span class="spanHghlight">&#42;</span></label>     
+                    <select class="form-control" id="dobYear" name="dobYear" formControlName="dobYear" #dropdownYear aria-labelledby="date-of-birth" required aria-required="true" (focus)="addHighlight($event)" (blur)="removehighlight($event)">
+                      <option *ngFor="let year of selYear; let i = index" [value]="year">{{year}}</option>
+                      </select>
+                    <!--div *ngIf="form.get('dobYear').touched && form.get('dobMonth').invalid" class="alert alert-danger">Date is required.</div-->
+                  </div>
+                </div><!-- col-sm-4 -->
+
+              </div><!-- row End --> 
+            </div><!-- form-group --->
+
+           
+               
+             
+
+                <div class="btn-group">                
+                  <button type="button" class="btn btn-default" (click)="showClickedNum(); save(form)">Submit</button>
+                  <button type="button" class="btn btn-default"(click)="cancel()">Cancel</button>   
+                  <button type="button" class="btn btn-default"(click)="displaySubstr()">Test</button>    
+                </div> 
+
+                  <p>&#42; required</p>
+                </form>
+              
+    
+        </div>
+      </div>
